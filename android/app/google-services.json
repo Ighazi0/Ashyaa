@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "857622757347",
+    "project_id": "things-comma",
+    "storage_bucket": "things-comma.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857622757347:android:353d4cbae645752a7caad6",
+        "android_client_info": {
+          "package_name": "com.comma.things"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeKWZd5zfjisJf4pPUSweY4eX4-OofT5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
