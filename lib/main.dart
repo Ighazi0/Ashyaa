@@ -23,7 +23,7 @@ Future<void> main() async {
   FirebaseMessaging.onBackgroundMessage(_backgroundHandler);
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('ar')],
+      supportedLocales: const [Locale('ar'), Locale('en')],
       path: 'assets/strings',
       startLocale: const Locale('ar'),
       child: const InitApp(),

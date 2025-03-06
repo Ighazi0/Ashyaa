@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyB7NMLbIcRdd0HgGUpTyYQeXg1j-tdheK4</string>
+	<string>AIzaSyCaoVo6_ku_ip8GlT5Zets7JdqH2-8lZSc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>857622757347</string>
+	<string>289243395985</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.comma.things</string>
+	<string>com.comma.ashyaa</string>
 	<key>PROJECT_ID</key>
-	<string>things-comma</string>
+	<string>ashyaa-comma</string>
 	<key>STORAGE_BUCKET</key>
-	<string>things-comma.firebasestorage.app</string>
+	<string>ashyaa-comma.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:857622757347:ios:42452f53bb62b08a7caad6</string>
+	<string>1:289243395985:ios:6473837ec115e82afe0c30</string>
 </dict>
 </plist>

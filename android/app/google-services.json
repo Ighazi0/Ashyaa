@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "857622757347",
-    "project_id": "things-comma",
-    "storage_bucket": "things-comma.firebasestorage.app"
+    "project_number": "289243395985",
+    "project_id": "ashyaa-comma",
+    "storage_bucket": "ashyaa-comma.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:857622757347:android:353d4cbae645752a7caad6",
+        "mobilesdk_app_id": "1:289243395985:android:852d9876d4947b72fe0c30",
         "android_client_info": {
-          "package_name": "com.comma.things"
+          "package_name": "com.comma.ashyaa"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCeKWZd5zfjisJf4pPUSweY4eX4-OofT5M"
+          "current_key": "AIzaSyCcLVSyPCfGd3yxPG2bulIP0nEx4tsgQ5c"
         }
       ],
       "services": {
