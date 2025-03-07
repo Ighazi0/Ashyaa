@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:things/controllers/main_controller.dart';
@@ -19,25 +20,21 @@ class BottomNavWidget extends StatelessWidget {
           items: [
             SalomonBottomBarItem(
               icon: Icon(Icons.home),
-              title: Text("Home"),
-              selectedColor: Colors.purple,
+              title: Text("home".tr()),
             ),
             SalomonBottomBarItem(
               icon: Icon(Icons.favorite_border),
               title: Text("Likes"),
-              selectedColor: Colors.pink,
             ),
 
             SalomonBottomBarItem(
               icon: Icon(Icons.search),
               title: Text("Search"),
-              selectedColor: Colors.orange,
             ),
 
             SalomonBottomBarItem(
               icon: Icon(Icons.person),
               title: Text("Profile"),
-              selectedColor: Colors.teal,
             ),
           ],
         );

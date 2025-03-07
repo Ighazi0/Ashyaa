@@ -14,6 +14,7 @@ class InitApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: AppStyle.theme,
+      darkTheme: AppStyle.darkTheme,
       locale: context.locale,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
