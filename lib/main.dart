@@ -13,7 +13,6 @@ Future<void> _backgroundHandler(RemoteMessage message) async {
 
 initialControllers() async {
   await GetStorage.init();
-  // await MobileAds.instance.initialize();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }

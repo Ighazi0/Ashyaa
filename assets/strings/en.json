@@ -1,6 +1,7 @@
 {
     "app_name":"Ashya'a",
-    "home":"Home"
-
-
+    "home":"Home",
+    "account":"Account",
+    "favorites":"Favorites",
+    "chats":"Chats"
 }
