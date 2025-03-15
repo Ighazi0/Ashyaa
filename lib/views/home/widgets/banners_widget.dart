@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:things/app/app_style.dart';
 import 'package:things/models/banner_model.dart';
+import 'package:things/services/device_services.dart';
 import 'package:things/services/firebase_services.dart';
 import 'package:things/views/general/widgets/network_image_widget.dart';
 import 'package:things/views/general/widgets/shimmer_widget.dart';
@@ -22,7 +23,7 @@ class _BannersWidgetState extends State<BannersWidget> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
+    _pageController = PageController(viewportFraction: 0.925);
     _startAutoPlay();
   }
 
@@ -42,12 +43,18 @@ class _BannersWidgetState extends State<BannersWidget> {
     super.dispose();
   }
 
+  static Size get bannerSize {
+    double screenWidth = DeviceServices.width;
+    double height = screenWidth / 2.5;
+    return Size(screenWidth, height);
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: FirebaseServices.getData(FirestoreCollections.banners),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
+        if (snapshot.hasData) {
           final banners =
               snapshot.data?.docs
                   .map((b) => BannerModel.fromJson(b.data(), b.reference))
@@ -55,9 +62,11 @@ class _BannersWidgetState extends State<BannersWidget> {
           return Column(
             children: [
               SizedBox(
-                height: 150,
+                width: bannerSize.width,
+                height: bannerSize.height,
                 child: PageView.builder(
                   controller: _pageController,
+
                   onPageChanged: (index) {
                     setState(() {
                       _currentIndex = index % (banners?.length ?? 0);
@@ -66,10 +75,7 @@ class _BannersWidgetState extends State<BannersWidget> {
                   itemBuilder: (context, index) {
                     final banner = banners?[index % banners.length];
                     return Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 10,
-                      ),
+                      padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
                       child: ClipRRect(
                         borderRadius: AppStyle.borderRadius,
                         child: NetworkImageWidget(
@@ -86,14 +92,23 @@ class _BannersWidgetState extends State<BannersWidget> {
                 children: List.generate(banners?.length ?? 0, (index) {
                   final active =
                       _currentIndex == (index % (banners?.length ?? 0));
-                  return AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    margin: const EdgeInsets.symmetric(horizontal: 2),
-                    width: active ? 10 : 8,
-                    height: 8,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: active ? AppStyle.secondryColor : Colors.grey,
+                  return GestureDetector(
+                    onTap: () {
+                      _pageController.animateToPage(
+                        index % (banners?.length ?? 0),
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
+                      width: active ? 10 : 8,
+                      height: 8,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: active ? AppStyle.secondryColor : Colors.grey,
+                      ),
                     ),
                   );
                 }),
@@ -104,8 +119,9 @@ class _BannersWidgetState extends State<BannersWidget> {
         return ShimmerWidget(
           enable: true,
           child: Container(
-            height: 150,
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            width: bannerSize.width,
+            height: bannerSize.height,
+            margin: const EdgeInsets.fromLTRB(5, 10, 5, 5),
             decoration: BoxDecoration(
               borderRadius: AppStyle.borderRadius,
               color: Colors.grey,
