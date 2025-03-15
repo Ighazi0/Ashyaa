@@ -11,7 +11,6 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      toolbarHeight: 50,
       centerTitle: false,
       backgroundColor: AppStyle.secondryColor,
       floating: true,

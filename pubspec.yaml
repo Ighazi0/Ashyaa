@@ -28,6 +28,7 @@ dependencies:
   easy_localization: ^3.0.7+1
 
   salomon_bottom_bar: ^3.3.2
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

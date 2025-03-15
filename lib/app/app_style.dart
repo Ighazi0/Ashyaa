@@ -13,7 +13,7 @@ class AppStyle {
 
   static get theme => ThemeData(
     primaryColor: primaryColor,
-    appBarTheme: const AppBarTheme(elevation: 0),
+    appBarTheme: const AppBarTheme(),
     scaffoldBackgroundColor: lightColor,
     colorScheme: const ColorScheme.light(primary: primaryColor),
     iconTheme: IconThemeData(color: Colors.black),
@@ -24,7 +24,7 @@ class AppStyle {
 
   static get darkTheme => ThemeData(
     primaryColor: secondryColor,
-    appBarTheme: const AppBarTheme(backgroundColor: Colors.white, elevation: 0),
+    appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
     scaffoldBackgroundColor: darkColor,
     colorScheme: const ColorScheme.light(primary: secondryColor),
     iconTheme: IconThemeData(color: Colors.white),

@@ -4,7 +4,7 @@ import 'package:things/services/firebase_services.dart';
 class AuthController {
   final getStorage = GetStorage();
   Future getUserData() async {
-    final response = await FirebaseServices.getWithDoc(
+    final response = await FirebaseServices.getDataWithDoc(
       FirestoreCollections.users,
       getStorage.read('uid'),
     );

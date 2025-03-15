@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseServices {
-  static Future<DocumentSnapshot<Map<String, dynamic>>> getWithDoc(
+  static Future<DocumentSnapshot<Map<String, dynamic>>> getDataWithDoc(
     FirestoreCollections collectionName,
     String docId,
   ) async {
@@ -13,7 +13,21 @@ class FirebaseServices {
               .get();
       return response;
     } catch (e) {
-      throw 'getWithDoc ❌ collectionName:$collectionName 🥨 docId:$docId e:$e';
+      throw 'getDataWithDoc ❌ collectionName:$collectionName 🥨 docId:$docId e:$e';
+    }
+  }
+
+  static Future<QuerySnapshot<Map<String, dynamic>>> getData(
+    FirestoreCollections collectionName,
+  ) async {
+    try {
+      final response =
+          await FirebaseFirestore.instance
+              .collection(collectionName.toString())
+              .get();
+      return response;
+    } catch (e) {
+      throw 'getData ❌ collectionName:$collectionName e:$e';
     }
   }
 }
@@ -21,7 +35,8 @@ class FirebaseServices {
 enum FirestoreCollections {
   users._("users"),
   products._("products"),
-  orders._("orders");
+  orders._("orders"),
+  banners._("banners");
 
   final String value;
   const FirestoreCollections._(this.value);
