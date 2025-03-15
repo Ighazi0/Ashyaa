@@ -64,7 +64,8 @@ class _BannersWidgetState extends State<BannersWidget> {
                   .toList();
           return Column(
             children: [
-              SizedBox(
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 width: bannerSize.width,
                 height: bannerSize.height,
                 child: PageView.builder(
@@ -78,7 +79,7 @@ class _BannersWidgetState extends State<BannersWidget> {
                   itemBuilder: (context, index) {
                     final banner = banners[index % banners.length];
                     return Padding(
-                      padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: ClipRRect(
                         borderRadius: AppStyle.borderRadius,
                         child: NetworkImageWidget(
@@ -94,23 +95,14 @@ class _BannersWidgetState extends State<BannersWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(banners.length, (index) {
                   final active = _currentIndex == (index % banners.length);
-                  return GestureDetector(
-                    onTap: () {
-                      _pageController.animateToPage(
-                        index % banners.length,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      margin: const EdgeInsets.symmetric(horizontal: 2),
-                      width: active ? 10 : 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: active ? AppStyle.secondryColor : Colors.grey,
-                      ),
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    margin: const EdgeInsets.symmetric(horizontal: 2),
+                    width: active ? 10 : 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: active ? AppStyle.secondryColor : Colors.grey,
                     ),
                   );
                 }),
