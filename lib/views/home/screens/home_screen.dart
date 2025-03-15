@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:things/views/home/widgets/banners_widget.dart';
+import 'package:things/views/home/widgets/categories_widget.dart';
 import 'package:things/views/home/widgets/home_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +10,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        slivers: [HomeAppBar(), SliverToBoxAdapter(child: BannersWidget())],
+        slivers: [
+          HomeAppBar(),
+          SliverToBoxAdapter(child: BannersWidget()),
+          SliverToBoxAdapter(child: CategoriesWidget()),
+        ],
       ),
     );
   }

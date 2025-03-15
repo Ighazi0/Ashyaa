@@ -43,10 +43,10 @@ class UserModel {
       image: json['image'],
       birthday: json['birthday'],
       createdAt: json['created_at'],
-      docRef: docRef,
       deleted: json['deleted'],
       blocked: json['blocked'],
       phone: json['phone'],
+      docRef: docRef,
     );
   }
 

@@ -52,12 +52,15 @@ class _BannersWidgetState extends State<BannersWidget> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: FirebaseServices.getData(FirestoreCollections.banners),
+      future: FirebaseServices.getDataWithOrderBy(
+        FirestoreCollections.banners,
+        FirestoreFields.position,
+      ),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final banners =
-              snapshot.data?.docs
-                  .map((b) => BannerModel.fromJson(b.data(), b.reference))
+              snapshot.data!.docs
+                  .map((c) => BannerModel.fromJson(c.data(), c.reference))
                   .toList();
           return Column(
             children: [
@@ -69,17 +72,17 @@ class _BannersWidgetState extends State<BannersWidget> {
 
                   onPageChanged: (index) {
                     setState(() {
-                      _currentIndex = index % (banners?.length ?? 0);
+                      _currentIndex = index % banners.length;
                     });
                   },
                   itemBuilder: (context, index) {
-                    final banner = banners?[index % banners.length];
+                    final banner = banners[index % banners.length];
                     return Padding(
                       padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
                       child: ClipRRect(
                         borderRadius: AppStyle.borderRadius,
                         child: NetworkImageWidget(
-                          url: banner?.image ?? '',
+                          url: banner.image ?? '',
                           boxFit: BoxFit.fill,
                         ),
                       ),
@@ -89,13 +92,12 @@ class _BannersWidgetState extends State<BannersWidget> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(banners?.length ?? 0, (index) {
-                  final active =
-                      _currentIndex == (index % (banners?.length ?? 0));
+                children: List.generate(banners.length, (index) {
+                  final active = _currentIndex == (index % banners.length);
                   return GestureDetector(
                     onTap: () {
                       _pageController.animateToPage(
-                        index % (banners?.length ?? 0),
+                        index % banners.length,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
                       );

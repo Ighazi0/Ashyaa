@@ -42,3 +42,11 @@ flutter:
   assets:
     - assets/strings/
     - assets/images/
+
+fonts:
+  - family: Alexandria
+    fonts:
+      - asset: assets/fonts/Alexandria/Alexandria-Bold.ttf
+      - asset: assets/fonts/Alexandria/Alexandria-Regular.ttf
+      - asset: assets/fonts/Alexandria/Alexandria-Medium.ttf
+      - asset: assets/fonts/Alexandria/Alexandria-Light.ttf
